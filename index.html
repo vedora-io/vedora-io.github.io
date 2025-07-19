@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vedora Engineering</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-    header { background: #0a3d62; color: white; padding: 20px; text-align: center; }
-    nav { background: #1e272e; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    section { padding: 40px 20px; }
-    footer { background: #0a3d62; color: white; text-align: center; padding: 20px; }
-    .btn { background: #27ae60; color: white; padding: 10px 20px; border: none; cursor: pointer; }
-    .services { background: #fff; border-radius: 5px; padding: 20px; box-shadow: 0 0 10px #ccc; margin: 20px auto; max-width: 800px; }
-    input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 10px; }
-    .whatsapp { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #ffffff; color: #333; }
+    header { background: #004d66; color: #fff; padding: 60px 20px; text-align: center; background-image: url('https://images.unsplash.com/photo-1581090700227-1c1b9d3130f1?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; }
+    header h1 { margin-bottom: 10px; font-size: 2.5rem; }
+    header p { font-size: 1.2rem; }
+
+    nav { background: #e6f2f2; padding: 15px; text-align: center; }
+    nav a { margin: 0 15px; text-decoration: none; color: #004d66; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+
+    section { padding: 50px 20px; max-width: 900px; margin: auto; }
+    .section-title { font-size: 2rem; margin-bottom: 20px; border-bottom: 2px solid #cceeff; padding-bottom: 10px; color: #004d66; }
+    .btn { background: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; }
+    .btn:hover { background: #00796b; }
+    .service-block { margin-bottom: 40px; }
+    .service-img { width: 100%; border-radius: 8px; margin-bottom: 20px; }
+    footer { background: #004d66; color: white; text-align: center; padding: 30px 20px; margin-top: 40px; }
+    input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; }
+    button { background: #009688; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #00796b; }
+    ul li { margin: 10px 0; }
   </style>
 </head>
 <body>
@@ -27,51 +37,106 @@
 <nav>
   <a href="#about">About</a>
   <a href="#services">Services</a>
+  <a href="#industries">Industries</a>
   <a href="#contact">Contact</a>
 </nav>
 
 <section id="about">
-  <div class="services">
-    <h2>About Us</h2>
-    <p>Vedora Engineering is based in Ahmedabad, Gujarat and offers trusted, professional services in instrumentation — from calibration and installation to design support. We ensure quality, precision, and reliability on every project.</p>
-  </div>
+  <h2 class="section-title">About Us</h2>
+  <img class="service-img" src="https://images.unsplash.com/photo-1600267165517-37f47a6c9f3c?auto=format&fit=crop&w=900&q=80" alt="Industrial Instruments">
+  <p>Vedora Engineering, based in Ahmedabad, Gujarat, provides expert services in industrial instrumentation — calibration, loop checking, panel wiring, and drawing preparation. We combine deep field expertise with a commitment to safety and precision.</p>
 </section>
 
 <section id="services">
-  <div class="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Calibration of Pressure, Temperature, Flow & Level Instruments</li>
-      <li>Loop Checking and Troubleshooting</li>
-      <li>Hookup and Location Layout Drawings</li>
-      <li>Instrument Wiring and Installation</li>
-      <li>Control Panel Testing</li>
-    </ul>
+  <h2 class="section-title">Our Services</h2>
+  <div class="service-block">
+    <img class="service-img" src="https://images.unsplash.com/photo-1581093588401-ec8c6a6c7eb2?auto=format&fit=crop&w=900&q=80" alt="Calibration">
+    <h3>Calibration Services</h3>
+    <p>We provide calibration of pressure, temperature, flow, and level instruments with traceability and precision.</p>
+    <a href="#calibration-details" class="btn">Read More</a>
+  </div>
+  <div class="service-block">
+    <img class="service-img" src="https://images.unsplash.com/photo-1630900465097-6dba228bc6e8?auto=format&fit=crop&w=900&q=80" alt="Loop Checking">
+    <h3>Loop Checking & Troubleshooting</h3>
+    <p>End-to-end signal verification and loop integrity testing to ensure your instruments and PLCs communicate properly.</p>
+    <a href="#loop-checking" class="btn">Read More</a>
+  </div>
+  <div class="service-block">
+    <img class="service-img" src="https://images.unsplash.com/photo-1615859436637-b8b5d8b5df2d?auto=format&fit=crop&w=900&q=80" alt="Drawings">
+    <h3>Hook-up & Layout Drawing Support</h3>
+    <p>We prepare detailed hook-up drawings and location layouts to support your project execution and documentation.</p>
+    <a href="#drawings" class="btn">Read More</a>
+  </div>
+  <div class="service-block">
+    <img class="service-img" src="https://images.unsplash.com/photo-1581091870679-9c8db479e13f?auto=format&fit=crop&w=900&q=80" alt="Panel Testing">
+    <h3>Wiring, Termination & Control Panel Testing</h3>
+    <p>Professional execution of panel termination, cable scheduling, and pre-commissioning testing.</p>
+    <a href="#wiring" class="btn">Read More</a>
   </div>
 </section>
 
+<section id="calibration-details">
+  <h2 class="section-title">What is Calibration?</h2>
+  <p>Calibration is the process of configuring an instrument to provide accurate measurements by comparing it with a known standard. This ensures instruments are working within specified tolerance and regulatory requirements.</p>
+
+  <h3>Why is Calibration Required?</h3>
+  <ul>
+    <li>Ensures safety in process-critical industries</li>
+    <li>Maintains accuracy and consistency of measurement</li>
+    <li>Complies with ISO, pharma, and energy audit standards</li>
+    <li>Prevents costly errors or downtime due to drift</li>
+  </ul>
+
+  <h3>Why Choose Vedora Engineering?</h3>
+  <ul>
+    <li>Expert team with 6+ years field experience in EPC and hydrogen plants</li>
+    <li>Traceable instruments with calibration certificates</li>
+    <li>Genuine commitment to quality and on-time execution</li>
+    <li>Affordable and transparent pricing</li>
+  </ul>
+</section>
+
+<section id="loop-checking">
+  <h2 class="section-title">Loop Checking & Troubleshooting</h2>
+  <p>We perform complete loop checks from field instruments to DCS/PLC, identifying signal loss, polarity issues, grounding problems, or configuration errors. Our systematic process ensures a ready-to-commission loop.</p>
+</section>
+
+<section id="drawings">
+  <h2 class="section-title">Hook-up & Layout Drawing Support</h2>
+  <p>We offer detailed, project-specific hookup drawings and instrument location layouts as per project standards. Our drafting ensures easier installation and audit-ready documentation.</p>
+</section>
+
+<section id="wiring">
+  <h2 class="section-title">Wiring, Termination & Panel Testing</h2>
+  <p>We provide structured cable laying, termination, JB-to-panel continuity checks, and FAT/SAT support to ensure electrical and signal integrity across the instrumentation system.</p>
+</section>
+
+<section id="industries">
+  <h2 class="section-title">Industries We Serve</h2>
+  <ul>
+    <li>Oil & Gas</li>
+    <li>Hydrogen Production</li>
+    <li>Pharmaceutical Manufacturing</li>
+    <li>Food & Beverage</li>
+    <li>EPC (Engineering, Procurement & Construction)</li>
+  </ul>
+</section>
+
 <section id="contact">
-  <div class="services">
-    <h2>Contact Us</h2>
-    <p><strong>Email:</strong> <a href="mailto:info@vedoraengineering.com">info@vedoraengineering.com</a></p>
-    <p><strong>Phone:</strong> +91-9974008998</p>
-    <p><strong>Location:</strong> Vedora Engineering, Ahmedabad, Gujarat</p>
-    <form action="https://formspree.io/f/mzbldokp" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required><br>
-      <input type="email" name="email" placeholder="Your Email" required><br>
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea><br>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
-  </div>
+  <h2 class="section-title">Contact Us</h2>
+  <form action="https://formspree.io/f/mzbldokp" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p>Email: <a href="mailto:info@vedoraengineering.com">info@vedoraengineering.com</a></p>
+  <p>Address: Vedora Engineering, Ahmedabad, Gujarat</p>
 </section>
 
 <footer>
   &copy; 2025 Vedora Engineering. All rights reserved.
 </footer>
-
-<a class="whatsapp" href="https://wa.me/919974008998" target="_blank">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="Chat on WhatsApp">
-</a>
 
 </body>
 </html>
