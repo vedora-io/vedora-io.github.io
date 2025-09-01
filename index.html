@@ -1,142 +1,887 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Vedora Engineering</title>
+  <meta name="description" content="Vedora Engineering provides expert instrumentation & control services—calibration, loop checking, installation, and panel design—for Oil & Gas, Pharma, F&B, Hydrogen and EPC sectors." />
+  <meta name="theme-color" content="#0a2a6b" />
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/vedora-io/vedora-io.github.io/main/logo.png" type="image/x-icon" />
+<link rel="icon" href="https://raw.githubusercontent.com/vedora-io/vedora-io.github.io/main/logo.png" type="image/png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Vedora Engineering | Industrial Instrumentation Experts" />
+  <meta property="og:description" content="Precision. Safety. Performance. Calibration, installation & control systems for critical industries." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/vedora-io/vedora-io.github.io/main/logo.png" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eef3ff',
+              100: '#dce6ff',
+              200: '#b9cdff',
+              300: '#95b4ff',
+              400: '#709bff',
+              500: '#4b82ff',
+              600: '#2a63d6',
+              700: '#1549a6',
+              800: '#0a2a6b',
+              900: '#081e4a'
+            },
+            accent: {
+              500: '#ff7a18',
+              600: '#e0670f'
+            }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2,12,27,0.08)'
+          },
+          keyframes: {
+            fadeUp: { '0%': {opacity:0, transform:'translateY(16px)'}, '100%': {opacity:1, transform:'translateY(0)'} },
+            float: { '0%,100%': { transform:'translateY(0)' }, '50%': { transform:'translateY(-6px)' } },
+            marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+            pulseGlow: { '0%,100%': { boxShadow: '0 0 0 0 rgba(255,122,24,0.4)' }, '50%': { boxShadow: '0 0 0 12px rgba(255,122,24,0)' } }
+          },
+          animation: {
+            fadeUp: 'fadeUp 700ms ease-out both',
+            float: 'float 4s ease-in-out infinite',
+            marquee: 'marquee 30s linear infinite',
+            pulseGlow: 'pulseGlow 2.4s ease-in-out infinite'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Remix Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
   <style>
-    body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #ffffff; color: #333; }
-    header { background: #004d66; color: #fff; padding: 60px 20px; text-align: center; background-image: url('https://images.unsplash.com/photo-1581090700227-1c1b9d3130f1?auto=format&fit=crop&w=1500&q=80'); background-size: cover; background-position: center; }
-    header h1 { margin-bottom: 10px; font-size: 2.5rem; }
-    header p { font-size: 1.2rem; }
-
-    nav { background: #e6f2f2; padding: 15px; text-align: center; }
-    nav a { margin: 0 15px; text-decoration: none; color: #004d66; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-
-    section { padding: 50px 20px; max-width: 900px; margin: auto; }
-    .section-title { font-size: 2rem; margin-bottom: 20px; border-bottom: 2px solid #cceeff; padding-bottom: 10px; color: #004d66; }
-    .btn { background: #009688; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 10px; }
-    .btn:hover { background: #00796b; }
-    .service-block { margin-bottom: 40px; }
-    .service-img { width: 100%; border-radius: 8px; margin-bottom: 20px; }
-    footer { background: #004d66; color: white; text-align: center; padding: 30px 20px; margin-top: 40px; }
-    input, textarea { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 4px; }
-    button { background: #009688; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
-    button:hover { background-color: #00796b; }
-    ul li { margin: 10px 0; }
+    html { scroll-behavior: smooth; }
+    /* Gradient overlay helper */
+    .hero-overlay { background: radial-gradient(1200px 600px at 20% 20%, rgba(10,42,107,0.55), transparent 50%), linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55)); }
+    /* Logo marquee duplication trick: container is wider than track */
+    .marquee-track { width: 200%; }
   </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-<header>
-  <h1>Vedora Engineering</h1>
-  <p>You Believe. We Deliver.</p>
+  <!-- Skip link -->
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 bg-brand-800 text-white px-3 py-2 rounded-md">Skip to content</a>
+
+  <!-- Top Bar -->
+  <div class="hidden md:block bg-brand-900 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+      <p class="opacity-90">Precision • Performance • Trust</p>
+      <div class="flex items-center gap-4">
+        <a href="mailto:info@vedoraengineering.com" class="hover:underline"><i class="ri-mail-line mr-1"></i>info@vedoraengineering.com</a>
+        <span><i class="ri-map-pin-line mr-1"></i>Ahmedabad, Gujarat</span>
+      </div>
+    </div>
+  </div>
+
+<!-- Navbar -->
+<header class="bg-white/90 backdrop-blur shadow sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <div class="flex items-center justify-between py-2"> <!-- reduced from py-4 -->
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center">
+        <img src="https://raw.githubusercontent.com/vedora-io/vedora-io.github.io/main/logo.png" 
+             alt="Vedora Engineering Logo" class="h-16 w-auto object-contain" />
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main" class="hidden md:flex items-center gap-8 font-medium">
+        <a href="#home" class="hover:text-brand-700">Home</a>
+        <a href="#about" class="hover:text-brand-700">About</a>
+        <a href="#services" class="hover:text-brand-700">Services</a>
+        <a href="#industries" class="hover:text-brand-700">Industries</a>
+        <a href="#contact" class="hover:text-brand-700">Contact</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#contact" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded-xl shadow-soft transition">
+          <i class="ri-message-3-line text-lg"></i>
+          <span>Get a Quote</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200">
+        <i class="ri-menu-line text-2xl"></i>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="md:hidden hidden pb-4">
+      <nav class="flex flex-col gap-3 text-base font-medium">
+        <a href="#home" class="px-2 py-2 rounded hover:bg-gray-100">Home</a>
+        <a href="#about" class="px-2 py-2 rounded hover:bg-gray-100">About</a>
+        <a href="#services" class="px-2 py-2 rounded hover:bg-gray-100">Services</a>
+        <a href="#industries" class="px-2 py-2 rounded hover:bg-gray-100">Industries</a>
+        <a href="#contact" class="px-2 py-2 rounded hover:bg-gray-100">Contact</a>
+        <a href="#contact" class="mt-2 inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded-xl">
+          <i class="ri-message-3-line"></i>Get a Quote
+        </a>
+      </nav>
+    </div>
+  </div>
 </header>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#services">Services</a>
-  <a href="#industries">Industries</a>
-  <a href="#contact">Contact</a>
-</nav>
 
-<section id="about">
-  <h2 class="section-title">About Us</h2>
-  <img class="service-img" src="https://images.unsplash.com/photo-1600267165517-37f47a6c9f3c?auto=format&fit=crop&w=900&q=80" alt="Industrial Instruments">
-  <p>Vedora Engineering, based in Ahmedabad, Gujarat, provides expert services in industrial instrumentation — calibration, loop checking, panel wiring, and drawing preparation. We combine deep field expertise with a commitment to safety and precision.</p>
+
+  <!-- Hero -->
+  <section id="home" class="relative">
+    <div class="relative h-[78vh] min-h-[520px] w-full bg-center bg-cover" style="background-image:url('https://images.unsplash.com/photo-1581092334808-4c4b2f76c87d?auto=format&fit=crop&w=1600&q=80')">
+      <div class="hero-overlay absolute inset-0"></div>
+      <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-6 h-full flex items-center">
+        <div class="text-white max-w-3xl" data-animate>
+          <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+            Designing with Purpose, Building with Safety
+          </h1>
+          <p class="mt-4 text-lg md:text-xl opacity-90">Design, installation, and calibration — with safety and reliability at the core.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#services" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-xl shadow-soft transition"><i class="ri-tools-line"></i> Our Services</a>
+            <a href="#contact" class="inline-flex items-center gap-2 border border-white/80 hover:bg-white hover:text-brand-800 px-6 py-3 rounded-xl transition"><i class="ri-customer-service-2-line"></i> Contact Us</a>
+          </div>
+          <!-- Rotating trust bullets -->
+          <ul class="mt-6 grid grid-cols-2 sm:flex sm:flex-wrap gap-3 text-sm text-white/90">
+            <li class="flex items-center gap-2"><i class="ri-shield-check-line text-accent-500"></i> ISO-aligned Procedures</li>
+            <li class="flex items-center gap-2"><i class="ri-timer-flash-line text-accent-500"></i> Rapid Mobilization</li>
+            <li class="flex items-center gap-2"><i class="ri-team-line text-accent-500"></i> Multi-industry Expertise</li>
+          </ul>
+        </div>
+      </div>
+
+</div>
+  </section>
+
+  <main id="main">
+
+    <!-- Clients / Logos (marquee like enterprise sites) -->
+   <section class="py-10 bg-white border-y border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <p class="text-sm uppercase tracking-widest text-gray-500 text-center mb-6">
+      Trusted by teams across process industries
+    </p>
+    <div class="overflow-hidden">
+      <div class="marquee-track flex items-center gap-16 animate-marquee">
+        
+        <!-- First loop -->
+        <div class="flex items-center gap-16 text-center text-gray-600">
+          <div class="flex flex-col items-center">
+            <i class="ri-oil-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Oil & Gas</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-capsule-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Pharma</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-shield-check-line text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">ISO Standards</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-battery-2-charge-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Hydrogen</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-restaurant-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Food & Beverage</span>
+          </div>
+        </div>
+
+        <!-- Duplicate for seamless loop -->
+        <div class="flex items-center gap-16 ml-16 text-center text-gray-600">
+          <div class="flex flex-col items-center">
+            <i class="ri-oil-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Oil & Gas</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-capsule-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Pharma</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-shield-check-line text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">ISO Standards</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-battery-2-charge-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Hydrogen</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-restaurant-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Food & Beverage</span>
+          </div>
+        </div>
+
+ <!-- Duplicate for seamless loop -->
+        <div class="flex items-center gap-16 ml-16 text-center text-gray-600">
+          <div class="flex flex-col items-center">
+            <i class="ri-oil-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Oil & Gas</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-capsule-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Pharma</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-shield-check-line text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">ISO Standards</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-battery-2-charge-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Hydrogen</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-restaurant-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Food & Beverage</span>
+          </div>
+        </div>
+
+ <!-- Duplicate for seamless loop -->
+        <div class="flex items-center gap-16 ml-16 text-center text-gray-600">
+          <div class="flex flex-col items-center">
+            <i class="ri-oil-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Oil & Gas</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-capsule-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Pharma</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-shield-check-line text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">ISO Standards</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-battery-2-charge-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Hydrogen</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <i class="ri-restaurant-fill text-4xl text-gray-500 hover:text-accent-500 transition"></i>
+            <span class="text-sm mt-2">Food & Beverage</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="services">
-  <h2 class="section-title">Our Services</h2>
-  <div class="service-block">
-    <img class="service-img" src="https://images.unsplash.com/photo-1581093588401-ec8c6a6c7eb2?auto=format&fit=crop&w=900&q=80" alt="Calibration">
-    <h3>Calibration Services</h3>
-    <p>We provide calibration of pressure, temperature, flow, and level instruments with traceability and precision.</p>
-    <a href="#calibration-details" class="btn">Read More</a>
-  </div>
-  <div class="service-block">
-    <img class="service-img" src="https://images.unsplash.com/photo-1630900465097-6dba228bc6e8?auto=format&fit=crop&w=900&q=80" alt="Loop Checking">
-    <h3>Loop Checking & Troubleshooting</h3>
-    <p>End-to-end signal verification and loop integrity testing to ensure your instruments and PLCs communicate properly.</p>
-    <a href="#loop-checking" class="btn">Read More</a>
-  </div>
-  <div class="service-block">
-    <img class="service-img" src="https://images.unsplash.com/photo-1615859436637-b8b5d8b5df2d?auto=format&fit=crop&w=900&q=80" alt="Drawings">
-    <h3>Hook-up & Layout Drawing Support</h3>
-    <p>We prepare detailed hook-up drawings and location layouts to support your project execution and documentation.</p>
-    <a href="#drawings" class="btn">Read More</a>
-  </div>
-  <div class="service-block">
-    <img class="service-img" src="https://images.unsplash.com/photo-1581091870679-9c8db479e13f?auto=format&fit=crop&w=900&q=80" alt="Panel Testing">
-    <h3>Wiring, Termination & Control Panel Testing</h3>
-    <p>Professional execution of panel termination, cable scheduling, and pre-commissioning testing.</p>
-    <a href="#wiring" class="btn">Read More</a>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div data-animate>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-800">About Us</h2>
+          <p class="mt-4 text-lg text-gray-700">Welcome to Vedora Engineering </p>
+		  <p class="mt-4 text-lg text-gray-700">At Vedora Engineering, we provide end-to-end instrumentation solutions that ensure accuracy, compliance, and long-term reliability. From calibration and loop checking to installation and panel fabrication, we help industries build safe, efficient, and sustainable operations.</p>
+		  <p class="mt-4 text-lg text-gray-700">Our approach is simple: combine field expertise with engineering discipline to deliver projects right the first time.</p>
+		  <p class="mt-4 text-lg text-gray-700">“New to business, not new to engineering — delivering trusted instrumentation solutions backed by years of hands-on expertise.”</p>
+
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <div class="p-4 bg-white rounded-xl shadow-soft">
+              <p class="text-3xl font-extrabold text-brand-800">6+ <span class="text-gray-500 text-base font-medium">Years</span></p>
+              <p class="text-sm text-gray-600">Team experience in process plants</p>
+            </div>
+            <div class="p-4 bg-white rounded-xl shadow-soft">
+              <p class="text-3xl font-extrabold text-brand-800">24/7</p>
+              <p class="text-sm text-gray-600">On-call support & rapid response</p>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a href="#contact" class="inline-flex items-center gap-2 text-brand-800 font-semibold hover:underline"><i class="ri-arrow-right-up-line"></i> Download Company Profile (PDF)</a>
+          </div>
+        </div>
+        <div class="relative" data-animate>
+  <img src="https://raw.githubusercontent.com/vedora-io/vedora-io.github.io/main/image13.jpg" 
+       alt="Instrumentation panel work" 
+       class="rounded-2xl shadow-soft"/>
+</div>
+
+        </div>
+      </div>
+    </section>
+
+
+<!-- Services -->
+<section id="services" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center text-brand-800" data-animate>
+      Our Services
+    </h2>
+    <p class="text-center text-gray-600 mt-3 max-w-2xl mx-auto" data-animate>
+      End-to-end instrumentation & controls across the project lifecycle.
+    </p>
+
+    <!-- 2x2 Grid -->
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-2 gap-8 text-center">
+      
+      <!-- Card 1 -->
+      <article class="bg-gray-50 rounded-2xl p-8 shadow-soft hover:shadow-lg transition flex flex-col items-center" data-animate>
+        <i class="ri-speed-fill text-5xl text-accent-500 mb-4"></i>
+        <h3 class="text-lg font-semibold text-brand-800">Calibration of Instruments & Control Panels</h3>
+        <button onclick="openModal('modal1')" class="mt-4 px-4 py-2 text-sm bg-accent-500 text-white rounded-lg hover:bg-accent-600">Read More</button>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="bg-gray-50 rounded-2xl p-8 shadow-soft hover:shadow-lg transition flex flex-col items-center" data-animate>
+        <i class="ri-bar-chart-2-fill text-5xl text-accent-500 mb-4"></i>
+        <h3 class="text-lg font-semibold text-brand-800">Loop Checking & Troubleshooting Services</h3>
+        <button onclick="openModal('modal2')" class="mt-4 px-4 py-2 text-sm bg-accent-500 text-white rounded-lg hover:bg-accent-600">Read More</button>
+      </article>
+
+      <!-- Card 3 -->
+      <article class="bg-gray-50 rounded-2xl p-8 shadow-soft hover:shadow-lg transition flex flex-col items-center" data-animate>
+        <i class="ri-tools-fill text-5xl text-accent-500 mb-4"></i>
+        <h3 class="text-lg font-semibold text-brand-800">Instrumentation Installation Services</h3>
+        <button onclick="openModal('modal3')" class="mt-4 px-4 py-2 text-sm bg-accent-500 text-white rounded-lg hover:bg-accent-600">Read More</button>
+      </article>
+
+      <!-- Card 4 -->
+      <article class="bg-gray-50 rounded-2xl p-8 shadow-soft hover:shadow-lg transition flex flex-col items-center" data-animate>
+        <i class="ri-cpu-line text-5xl text-accent-500 mb-4"></i>
+        <h3 class="text-lg font-semibold text-brand-800">Design & Fabrication of Instrumentation Panels</h3>
+        <button onclick="openModal('modal4')" class="mt-4 px-4 py-2 text-sm bg-accent-500 text-white rounded-lg hover:bg-accent-600">Read More</button>
+      </article>
+    </div>
   </div>
 </section>
 
-<section id="calibration-details">
-  <h2 class="section-title">What is Calibration?</h2>
-  <p>Calibration is the process of configuring an instrument to provide accurate measurements by comparing it with a known standard. This ensures instruments are working within specified tolerance and regulatory requirements.</p>
+<!-- ========================= MODALS WITH FULL CONTENT ========================= -->
 
-  <h3>Why is Calibration Required?</h3>
-  <ul>
-    <li>Ensures safety in process-critical industries</li>
-    <li>Maintains accuracy and consistency of measurement</li>
-    <li>Complies with ISO, pharma, and energy audit standards</li>
-    <li>Prevents costly errors or downtime due to drift</li>
+<!-- Modal 1 -->
+<div id="modal1" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+  <div class="bg-white max-w-3xl p-6 rounded-xl shadow-lg overflow-y-auto max-h-[90vh] text-left">
+    
+    <h3 class="text-xl font-bold text-brand-800 mb-4">
+      Calibration of Instruments & Control Panels
+    </h3>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Inaccuracy in measurement can have a serious impact on an organization ranging from production losses 
+      to potential safety hazards. To reduce such risks in both regulated and non-regulated environments, 
+      Vedora Engineering offers a wide range of calibration and compliance services.
+    </p>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Whether your concern is cost, quality, or time, the Vedora Engineering team is ready to support you. </p>
+    <p class="text-gray-700 mb-3 text-justify">  Our professionals can design a customized calibration and service plan for your business that helps in 
+      testing and operations, controls validation costs, and reduces the difficulties of achieving and 
+      maintaining compliance.
+    </p>
+
+    <h4 class="font-semibold text-brand-800 mt-4">
+      Why Choose Vedora Engineering?
+    </h4>
+
+    <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-1 text-justify">
+      <li>Precision calibration with full traceability, ensuring instruments meet OEM specifications and compliance requirements.</li>
+      <li>Our site execution team brings extensive experience across Oil & Gas, Pharmaceutical, and Chemical industries.</li>
+      <li>Field/Lab calibration services with traceable equipment.</li>
+    </ul>
+
+    <h4 class="font-semibold text-brand-800 mt-4">
+      Instruments We Calibrate
+    </h4>
+    <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-1 text-justify">
+      <li>Analog / Digital Pressure Gauges</li>
+      <li>Vacuum Pressure Gauges</li>
+      <li>Pressure Transmitters</li>
+      <li>DPT, Level & Flow Transmitters</li>
+      <li>Temperature Gauges</li>
+      <li>Temperature Transmitters (RTD / Thermocouple)</li>
+    </ul>
+
+    <button onclick="closeModal('modal1')" 
+            class="mt-6 px-4 py-2 bg-brand-800 text-white rounded-lg hover:bg-brand-700">
+      Close
+    </button>
+  </div>
+</div>
+
+
+
+<!-- Modal 2 -->
+<div id="modal2" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+  <div class="bg-white max-w-3xl p-6 rounded-xl shadow-lg overflow-y-auto max-h-[90vh] text-left">
+    
+    <h3 class="text-xl font-bold text-brand-800 mb-4">
+      Loop Checking & Troubleshooting Services
+    </h3>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Faulty loops or unchecked connections can lead to signal errors, process interruptions, and even plant shutdowns. 
+      Ensuring smooth signal flow from field instruments to the control system is essential for safe and reliable operations.
+    </p>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Vedora Engineering provides comprehensive loop checking and troubleshooting support designed to verify signal integrity 
+      and system functionality. From pre-commissioning to live operations, our team ensures every loop is tested, confirmed, 
+      and documented.
+    </p>
+
+    <h4 class="font-semibold text-brand-800 mt-4">
+      What Makes Vedora Different?
+    </h4>
+    <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-1 text-justify">
+      <li>Complete verification of instrument signals from field to control room.</li>
+      <li>Detection of wiring mistakes, polarity issues, grounding problems, and signal drop.</li>
+      <li>On-site troubleshooting during commissioning and routine operations.</li>
+      <li>Smooth integration with shutdown activities or project execution.</li>
+      <li>Clear documentation and updated loop records for client validation.</li>
+    </ul>
+
+    <h4 class="font-semibold text-brand-800 mt-4">
+      Loops & Systems We Handle
+    </h4>
+    <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-1 text-justify">
+      <li>Pressure, Temperature, Flow, and Level transmitters.</li>
+      <li>Control valves, solenoids, and limit switches.</li>
+      <li>Safety interlocks and emergency shutdown systems.</li>
+      <li>Junction box to control panel connections.</li>
+      <li>PLC/DCS input-output mapping.</li>
+    </ul>
+
+    <button onclick="closeModal('modal2')" 
+            class="mt-6 px-4 py-2 bg-brand-800 text-white rounded-lg hover:bg-brand-700">
+      Close
+    </button>
+  </div>
+</div>
+
+
+<!-- Modal 3 -->
+<div id="modal3" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+  <div class="bg-white max-w-3xl p-6 rounded-xl shadow-lg overflow-y-auto max-h-[90vh] text-left">
+    
+    <h3 class="text-xl font-bold text-brand-800 mb-4">
+      Instrumentation Installation Services
+    </h3>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Instrumentation installation is not just about placing equipment in the field—it’s about precision, reliability, and long-term performance. 
+      Even a small error in installation can lead to inaccurate signals, safety issues, or costly downtime. That’s why every step of our installation 
+      process is carried out with technical accuracy and industrial best practices.
+    </p>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      At Vedora Engineering, we deliver complete instrumentation installation solutions for projects, maintenance, and shutdowns. 
+      From mounting instruments to laying cables, our team ensures your system is set up correctly, tested thoroughly, and ready 
+      for seamless integration with your plant operations.
+    </p>
+
+    <h4 class="font-semibold text-brand-800 mt-4">
+      Why Choose Vedora Engineering for Installation?
+    </h4>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Our services combine technical expertise, robust field execution, and compliance with standards. 
+      We cover every aspect of the installation cycle, including:
+    </p>
+
+    <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-2 text-justify">
+      <li>
+        <strong>Instrument & Equipment Installation</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Professional installation of transmitters, gauges, and field instruments with proper sealing and alignment to ensure accuracy and reliability.</p>
+      </li>
+      <li>
+        <strong>Mounting Stand Fabrication & Installation</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Customised stanchions and supports, fabricated and installed with precise orientation, correct slope for impulse lines, and long-term durability.</p>
+      </li>
+      <li>
+        <strong>Cable Tray Installation with Supporting Arrangement</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Supply and installation of ladder, perforated, and GI/FRP trays, complete with strong supports, covers, and alignment for safe routing.</p>
+      </li>
+      <li>
+        <strong>Cable Laying & Termination</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Primary cabling (JB to Control Room) and secondary cabling (Instrument to JB) executed with proper glanding, ferruling, tagging, and earthing to ensure noise-free, safe, and reliable connections.</p>
+      </li>
+    </ul>
+
+    <p class="text-gray-700 mt-4 text-justify">
+      By choosing Vedora, you’re assured of well-executed installations that minimize downtime, 
+      reduce maintenance headaches, and deliver long-term performance across your critical processes.
+    </p>
+
+    <button onclick="closeModal('modal3')" 
+            class="mt-6 px-4 py-2 bg-brand-800 text-white rounded-lg hover:bg-brand-700">
+      Close
+    </button>
+  </div>
+</div>
+
+
+<!-- Modal 4 -->
+<div id="modal4" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+  <div class="bg-white max-w-3xl p-6 rounded-xl shadow-lg overflow-y-auto max-h-[90vh] text-left">
+    
+    <h3 class="text-xl font-bold text-brand-800 mb-4">
+      Design & Fabrication of Instrumentation Panels
+    </h3>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      Control panels are the nerve center of any plant—they connect the field instruments, operators, and automation systems into one reliable framework. 
+      A poorly designed or fabricated panel can result in wiring errors, space limitations, overheating, and operational failures.
+    </p>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      At Vedora Engineering, we provide end-to-end panel design and fabrication services, ensuring your control systems 
+      are built with precision, safety, and long-term reliability. From engineering drawings to shop fabrication and site 
+      installation, our team delivers panels that are ready for integration and performance.
+    </p>
+
+    <h4 class="font-semibold text-brand-800 mt-4">
+      Why Choose Vedora Engineering for Panels?
+    </h4>
+
+    <p class="text-gray-700 mb-3 text-justify">
+      We combine engineering expertise, quality fabrication, and strict compliance with standards to deliver panels that meet 
+      your project and process needs. Our offerings include:
+    </p>
+
+    <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-2 text-justify">
+      <li>
+        <strong>Panel Design & Engineering</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Development of General Arrangement (GA) drawings, wiring diagrams, terminal layouts, and load calculations.</p>
+        <p class="ml-4 text-gray-600 text-justify">I/O mapping and signal allocation for smooth integration with PLC/DCS systems.</p>
+      </li>
+      <li>
+        <strong>Control Panel Fabrication</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Fabrication of PLC, DCS, RTU, and relay panels with precise wiring and tested layouts.</p>  
+        <p class="ml-4 text-gray-600 text-justify">Assembly of MCC and marshalling panels as per OEM and project specifications.</p>
+      </li>
+      <li>
+        <strong>Component Sizing & Integration</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Proper selection and sizing of breakers, relays, power supplies, and wiring accessories.</p>  
+        <p class="ml-4 text-gray-600 text-justify">Compliance with IEC standards for safety, heat dissipation, and IP protection.</p>
+      </li>
+      <li>
+        <strong>Testing & Documentation</strong>  
+        <p class="ml-4 text-gray-600 text-justify">Pre-dispatch inspections, FAT (Factory Acceptance Test), and quality checks before shipment.</p> 
+        <p class="ml-4 text-gray-600 text-justify">Detailed test reports, wiring schedules, and as-built documentation for client records.</p>
+      </li>
+    </ul>
+
+    <p class="text-gray-700 mt-4 text-justify">
+      By partnering with Vedora, you receive panels that are not only robust and reliable, but also designed for easy 
+      maintenance, expansion, and long service life.
+    </p>
+
+    <button onclick="closeModal('modal4')" 
+            class="mt-6 px-4 py-2 bg-brand-800 text-white rounded-lg hover:bg-brand-700">
+      Close
+    </button>
+  </div>
+</div>
+
+<!-- ========================= SCRIPT ========================= -->
+<script>
+  function openModal(id) {
+    // Show modal
+    document.getElementById(id).classList.remove("hidden");
+    // Prevent background scroll
+    document.body.classList.add("overflow-hidden");
+  }
+
+  function closeModal(id) {
+    // Hide modal
+    document.getElementById(id).classList.add("hidden");
+    // Restore background scroll
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  // Close modal if user clicks on the dark overlay (outside modal box)
+  document.querySelectorAll('[id^="modal"]').forEach(modal => {
+    modal.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        closeModal(modal.id);
+      }
+    });
+  });
+</script>
+
+
+    <!-- Industries -->
+    <section id="industries" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-brand-800" data-animate>Industries We Serve</h2>
+        <p class="mt-3 text-gray-600 max-w-2xl mx-auto" data-animate>Precision instrumentation tailored to each process environment.</p>
+        <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-soft hover:shadow transition" data-animate>
+            <i class="ri-oil-fill text-4xl text-accent-500 mb-2"></i>
+            <span class="text-lg font-semibold text-brand-800">Oil & Gas</span>
+          </div>
+          <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-soft hover:shadow transition" data-animate>
+            <i class="ri-battery-2-charge-fill text-4xl text-accent-500 mb-2"></i>
+            <span class="text-lg font-semibold text-brand-800">Hydrogen Production</span>
+          </div>
+          <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-soft hover:shadow transition" data-animate>
+            <i class="ri-capsule-fill text-4xl text-accent-500 mb-2"></i>
+            <span class="text-lg font-semibold text-brand-800">Pharmaceutical Manufacturing</span>
+          </div>
+          <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-soft hover:shadow transition" data-animate>
+            <i class="ri-restaurant-fill text-4xl text-accent-500 mb-2"></i>
+            <span class="text-lg font-semibold text-brand-800">Food & Beverage</span>
+          </div>
+          <div class="flex flex-col items-center bg-white p-6 rounded-2xl shadow-soft hover:shadow transition sm:col-span-2" data-animate>
+            <i class="ri-building-4-fill text-4xl text-accent-500 mb-2"></i>
+            <span class="text-lg font-semibold text-brand-800">EPC (Engineering, Procurement & Construction))</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="text-center" data-animate>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-brand-800">Get in Touch</h2>
+          <p class="mt-3 text-gray-600">We’re here to provide expert solutions for all your instrumentation needs.</p>
+        </div>
+
+        <div class="mt-10 grid lg:grid-cols-3 gap-8">
+          <!-- Form -->
+         <form id="contact-form" action="https://formspree.io/f/xanbrvbn" method="POST" 
+      class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-soft border border-gray-100" data-animate>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700">
+        Your Name <span class="text-red-500">*</span>
+      </label>
+      <input id="name" name="name" type="text" required 
+             class="mt-2 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-brand-600" />
+    </div>
+    <div>
+      <label for="email" class="block text-sm font-medium text-gray-700">
+        Your Email <span class="text-red-500">*</span>
+      </label>
+      <input id="email" name="email" type="email" required 
+             class="mt-2 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-brand-600" />
+    </div>
+    <div>
+      <label for="service" class="block text-sm font-medium text-gray-700">
+        Service Required <span class="text-red-500">*</span>
+      </label>
+      <select id="service" name="service" required 
+              class="mt-2 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-brand-600">
+        <option value="" disabled selected>Select a service</option>
+        <option value="Calibration of Instruments & Control Panels">Calibration of Instruments & Control Panels</option>
+        <option value="Loop Checking & Troubleshooting Services">Loop Checking & Troubleshooting Services</option>
+        <option value="Instrumentation Installation Services">Instrumentation Installation Services</option>
+        <option value="Design & Fabrication of Instrumentation Panels">Design & Fabrication of Instrumentation Panels</option>
+      </select>
+    </div>
+    <div>
+      <label for="phone" class="block text-sm font-medium text-gray-700">
+        Phone <span class="text-red-500">*</span>
+      </label>
+      <input id="phone" name="phone" type="tel" required inputmode="numeric" pattern="[0-9]+" 
+             class="mt-2 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-brand-600" 
+             placeholder="Enter numbers only" />
+    </div>
+  </div>
+
+  <div class="mt-6">
+    <label for="message" class="block text-sm font-medium text-gray-700">
+      Your Message <span class="text-red-500">*</span>
+    </label>
+    <textarea id="message" name="message" rows="5" required 
+              class="mt-2 border rounded-lg p-3 w-full focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
+  </div>
+
+  <button type="submit" 
+          class="mt-6 inline-flex items-center gap-2 bg-brand-800 text-white px-6 py-3 rounded-xl hover:bg-brand-700 transition shadow-soft animate-pulseGlow">
+    <i class="ri-send-plane-line"></i> Send Message
+  </button>
+
+  <p id="form-success" class="hidden mt-4 text-green-600 font-semibold">
+    ✅ Thank you! Your message has been sent successfully.
+  </p>
+  <p id="form-error" class="hidden mt-4 text-red-600 font-semibold">
+    ❌ Oops! Something went wrong. Please try again.
+  </p>
+</form>
+
+
+          <!-- Contact Info -->
+          <aside class="bg-white p-6 md:p-8 rounded-2xl shadow-soft border border-gray-100" data-animate>
+            <h3 class="font-semibold text-brand-800">Contact Details</h3>
+            <p class="mt-3 text-gray-600">Vedora Engineering<br/>Ahmedabad, Gujarat</p>
+            <p class="mt-3"><a href="mailto:info@vedoraengineering.com" class="text-brand-800 hover:underline"><i class="ri-mail-line mr-1"></i>info@vedoraengineering.com</a></p>
+            <div class="mt-6">
+              <h4 class="font-semibold text-brand-800">Follow Us</h4>
+              <div class="mt-2 flex gap-4 text-2xl text-gray-500">
+                <a href="#" aria-label="Facebook" class="hover:text-brand-800"><i class="ri-facebook-circle-fill"></i></a>
+                <a href="#" aria-label="Instagram" class="hover:text-brand-800"><i class="ri-instagram-fill"></i></a>
+                <a href="#" aria-label="LinkedIn" class="hover:text-brand-800"><i class="ri-linkedin-box-fill"></i></a>
+              </div>
+            </div>
+            <div class="mt-6 p-4 rounded-xl bg-gray-50 border border-gray-100">
+              <p class="text-sm text-gray-600">Need a quick estimate? Share your I/O list or P&IDs and our engineers will revert shortly.</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-10 grid md:grid-cols-4 gap-8">
+      <div>
+<div class="flex items-center gap-3">
+  <img src="https://raw.githubusercontent.com/vedora-io/vedora-io.github.io/main/logo1.png" 
+       alt="Vedora Engineering Logo" 
+       class="h-10 w-auto rounded-xl bg-white p-1 shadow" />
+  <span class="text-lg font-extrabold text-white">Vedora Engineering</span>
+</div>
+
+        <p class="mt-3 text-sm text-white/80">Industrial instrumentation experts for calibration, installation & controls.</p>
+      </div>
+      <div>
+  <h4 class="font-semibold">Services</h4>
+  <ul class="mt-3 space-y-2 text-sm text-white/80">
+    <li>
+      <a href="#services" class="hover:text-accent-400 transition">Calibration of Instruments & Control Panels</a>
+    </li>
+    <li>
+      <a href="#services" class="hover:text-accent-400 transition">Loop Checking & Troubleshooting Services</a>
+    </li>
+    <li>
+      <a href="#services" class="hover:text-accent-400 transition">Instrumentation Installation Services</a>
+    </li>
+    <li>
+      <a href="#services" class="hover:text-accent-400 transition">Design & Fabrication of Instrumentation Panels</a>
+    </li>
   </ul>
+</div>
 
-  <h3>Why Choose Vedora Engineering?</h3>
-  <ul>
-    <li>Expert team with 6+ years field experience in EPC and hydrogen plants</li>
-    <li>Traceable instruments with calibration certificates</li>
-    <li>Genuine commitment to quality and on-time execution</li>
-    <li>Affordable and transparent pricing</li>
+      <div>
+  <h4 class="font-semibold">Industries</h4>
+  <ul class="mt-3 space-y-2 text-sm text-white/80">
+    <li>
+      <a href="#industries" class="hover:text-accent-400 transition">Oil & Gas</a>
+    </li>
+    <li>
+      <a href="#industries" class="hover:text-accent-400 transition">Hydrogen Production</a>
+    </li>
+    <li>
+      <a href="#industries" class="hover:text-accent-400 transition">Pharmaceutical Manufacturing</a>
+    </li>
+    <li>
+      <a href="#industries" class="hover:text-accent-400 transition">Food & Beverage</a>
+    </li>
+    <li>
+      <a href="#industries" class="hover:text-accent-400 transition">EPC</a>
+    </li>
   </ul>
-</section>
+</div>
 
-<section id="loop-checking">
-  <h2 class="section-title">Loop Checking & Troubleshooting</h2>
-  <p>We perform complete loop checks from field instruments to DCS/PLC, identifying signal loss, polarity issues, grounding problems, or configuration errors. Our systematic process ensures a ready-to-commission loop.</p>
-</section>
+      <div>
+        <h4 class="font-semibold">Reach Us</h4>
+        <p class="mt-3 text-sm text-white/80">Ahmedabad, Gujarat</p>
+        <a href="mailto:info@vedoraengineering.com" class="mt-2 inline-flex items-center gap-2 text-sm hover:underline"><i class="ri-mail-line"></i> info@vedoraengineering.com</a>
+        <div class="mt-4">
+          <a href="#contact" class="inline-flex items-center gap-2 bg-accent-500 hover:bg-accent-600 text-white px-4 py-2 rounded-xl transition"><i class="ri-message-3-line"></i> Get a Quote</a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 text-center text-xs text-white/70">© <span id="year"></span> Vedora Engineering. All rights reserved.</div>
+    </div>
+  </footer>
 
-<section id="drawings">
-  <h2 class="section-title">Hook-up & Layout Drawing Support</h2>
-  <p>We offer detailed, project-specific hookup drawings and instrument location layouts as per project standards. Our drafting ensures easier installation and audit-ready documentation.</p>
-</section>
+  <!-- Scripts: menu toggle, form async, intersection animations -->
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-<section id="wiring">
-  <h2 class="section-title">Wiring, Termination & Panel Testing</h2>
-  <p>We provide structured cable laying, termination, JB-to-panel continuity checks, and FAT/SAT support to ensure electrical and signal integrity across the instrumentation system.</p>
-</section>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
 
-<section id="industries">
-  <h2 class="section-title">Industries We Serve</h2>
-  <ul>
-    <li>Oil & Gas</li>
-    <li>Hydrogen Production</li>
-    <li>Pharmaceutical Manufacturing</li>
-    <li>Food & Beverage</li>
-    <li>EPC (Engineering, Procurement & Construction)</li>
-  </ul>
-</section>
+    // Formspree async handling
+    const form = document.getElementById('contact-form');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
 
-<section id="contact">
-  <h2 class="section-title">Contact Us</h2>
-  <form action="https://formspree.io/f/mzbldokp" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
-  <p>Email: <a href="mailto:info@vedoraengineering.com">info@vedoraengineering.com</a></p>
-  <p>Address: Vedora Engineering, Ahmedabad, Gujarat</p>
-</section>
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          successMsg.classList.remove('hidden');
+          errorMsg.classList.add('hidden');
+          form.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        successMsg.classList.add('hidden');
+        errorMsg.classList.remove('hidden');
+      }
+    });
 
-<footer>
-  &copy; 2025 Vedora Engineering. All rights reserved.
-</footer>
+    // Intersection observer reveal animations
+    const reveal = (el) => {
+      el.style.opacity = 0;
+      el.style.transform = 'translateY(16px)';
+    };
+    const show = (el) => {
+      el.style.transition = 'all 600ms cubic-bezier(0.22, 1, 0.36, 1)';
+      el.style.opacity = 1;
+      el.style.transform = 'translateY(0)';
+    };
+    const animated = document.querySelectorAll('[data-animate]');
+    animated.forEach(reveal);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          show(entry.target);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    animated.forEach((el) => io.observe(el));
+  </script>
 
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Vedora Engineering",
+    "description": "Industrial instrumentation experts for calibration, installation and control systems.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "IN"
+    },
+    "email": "info@vedoraengineering.com",
+    "areaServed": ["India"],
+    "sameAs": []
+  }
+  </script>
 </body>
 </html>
